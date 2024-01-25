@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; 
 import '../components/log-in.css';
 
 const LoginPage = () => {
@@ -20,6 +21,7 @@ const LoginPage = () => {
                         <input
                             type="email"
                             placeholder="Enter Email"
+                            value={email}
                             onChange={(event) => setEmail(event.target.value)}
                         />
                     </div>
@@ -28,10 +30,17 @@ const LoginPage = () => {
                         <input
                             type="password"
                             placeholder="Enter Password"
+                            value={password}
                             onChange={(event) => setPassword(event.target.value)}
                         />
                     </div>
                     <button type="submit">Log In</button>
+                    <div>
+                        <p>Don't have an account?</p>
+                    </div>
+                    <Link to="/sign-up"> {}
+                        <button type="button">Sign up</button> {}
+                    </Link>
                 </form>
             </div>
         </div>
