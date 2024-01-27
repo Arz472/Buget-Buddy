@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../components/log-in.css';
 import validation from'./sign-up-validation'
 
 function Signup() {
-    // const navigate = useNavigate();
+    const navigate =  useNavigate();
+
     const [errors, setErrors] = useState({});
     const [values, setValues] = useState({
         name: '',
@@ -56,7 +57,7 @@ function Signup() {
                         />
                         <span> {errors.password && <span className='text-danger'> {errors.password}</span>} </span>
                     </div>
-                    <button type="submit">Sign Up</button>
+                    <button type="submit" onClick={() => navigate('/')}>Sign Up</button>
                     <div>
                         <p>Already have an account?</p>
                         <Link to="/">Log In</Link>
