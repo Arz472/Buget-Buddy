@@ -23,15 +23,6 @@ function passwordStrong(value) {
         strength += 1;
     }
 
-    let strengthLabel;
-    if (strength === 1 || strength === 2) {
-        strengthLabel = "Weak";
-    } else if (strength === 3 || strength === 4) {
-        strengthLabel = "Medium";
-    } else if (strength === 5) {
-        strengthLabel = "Strong";
-    }
-
     return strength;
 
 }

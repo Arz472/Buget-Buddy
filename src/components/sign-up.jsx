@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../components/log-in.css';
-import validation from'./sign-up-validation'
+import validation from './sign-up-validation';
+import passwordStrong from './password-strong';
 
 function Signup() {
-    const navigate =  useNavigate();
-
+    const [passwordStrength, setPasswordStrength] = useState('');
     const [errors, setErrors] = useState({});
     const [values, setValues] = useState({
         name: '',
@@ -15,6 +15,19 @@ function Signup() {
 
     const handleInput = (event) => {
         setValues({ ...values, [event.target.name]: event.target.value });
+
+        if (event.target.name === 'password') {
+            const strength = passwordStrong({ password: event.target.value });
+            let strengthLabel;
+            if (strength === 1 || strength === 2) {
+                strengthLabel = 'Weak';
+            } else if (strength === 3 || strength === 4) {
+                strengthLabel = 'Medium';
+            } else if (strength === 5) {
+                strengthLabel = 'Strong';
+            }
+            setPasswordStrength(strengthLabel);
+        }
     };
 
     const handleSubmit = (event) => {
@@ -35,7 +48,7 @@ function Signup() {
                             placeholder="Enter Name"
                             onChange={handleInput}
                         />
-                        <span> {errors.name && <span className='text-danger'> {errors.name}</span>} </span>
+                        <span>{errors.name && <span className="text-danger">{errors.name}</span>}</span>
                     </div>
                     <div className="email-container">
                         <label htmlFor="email">Email</label>
@@ -45,7 +58,7 @@ function Signup() {
                             placeholder="Enter Email"
                             onChange={handleInput}
                         />
-                        <span> {errors.email && <span className='text-danger'> {errors.email}</span>} </span>
+                        <span>{errors.email && <span className="text-danger">{errors.email}</span>}</span>
                     </div>
                     <div className="password-container">
                         <label htmlFor="password">Password</label>
@@ -55,9 +68,11 @@ function Signup() {
                             placeholder="Enter Password"
                             onChange={handleInput}
                         />
-                        <span> {errors.password && <span className='text-danger'> {errors.password}</span>} </span>
+                        <span>{errors.password && <span className="text-danger">{errors.password}</span>}</span>
+                        <div>Password Strength: {passwordStrength}</div>
                     </div>
-                    <button type="submit" onClick={() => navigate('/')}>Sign Up</button>
+
+                    <button type="submit">Sign Up</button>
                     <div>
                         <p>Already have an account?</p>
                         <Link to="/">Log In</Link>
