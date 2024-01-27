@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../components/log-in.css';
+import '../components/Signup-Login.css';
 import validation from './sign-up-validation';
 import passwordStrong from './password-strong';
 
