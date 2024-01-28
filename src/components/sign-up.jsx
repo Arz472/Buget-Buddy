@@ -69,7 +69,13 @@ function Signup() {
                             onChange={handleInput}
                         />
                         <span>{errors.password && <span className="text-danger">{errors.password}</span>}</span>
-                        <div>Password Strength: {passwordStrength}</div>
+                        <div className={`password-strength ${
+                            passwordStrength === 'Weak' ? 'weak-password' :
+                            passwordStrength === 'Medium' ? 'medium-password' :
+                            passwordStrength === 'Strong' ? 'strong-password' : ''
+                        }`}>
+                            Password Strength: {passwordStrength}
+                        </div>
                     </div>
 
                     <button type="submit">Sign Up</button>
