@@ -81,7 +81,7 @@ function Signup() {
                     <button type="submit">Sign Up</button>
                     <div>
                         <p>Already have an account?</p>
-                        <Link to="/">Log In</Link>
+                        <Link to="/">Log In</Link> {/* Remove the children inside the Link component */}
                     </div>
                 </form>
             </div>

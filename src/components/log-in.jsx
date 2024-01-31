@@ -48,6 +48,7 @@ function LoginPage() {
                     <div>
                         <p>Don't have an account?</p>
                         <Link to="/sign-up">Sign Up</Link> 
+                        <a href="/home">Home page</a>
                     </div>
                 </form>
             </div>
