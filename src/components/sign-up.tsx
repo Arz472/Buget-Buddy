@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../components/Signup-Login.css';
-interface FormData {
+import validation from './Valid/sign-up-validation.jsx';
+
+interface FormatData {
     name: string;
     email: string;
     password: string;
 }
 
 function Signup() {
-    const [formData, setFormData] = useState<FormData>({
+    const [errors, setErrors] = useState<{ name?: string; email?: string; password?: string }>({});
+    const [formData, setFormData] = useState<FormatData>({
         name: '',
         email: '',
         password: '',
@@ -16,7 +19,7 @@ function Signup() {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // TODO: Handle form submission
+        setErrors(validation(formData));
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,29 +37,35 @@ function Signup() {
                     <div className="name-container">
                         <label htmlFor="name">Name</label>
                         <input
+                            type="text"
                             name="name"
                             placeholder="Enter Name"
                             value={formData.name}
                             onChange={handleChange}
                         />
+                         <span>{errors.name && <span className='text-danger'>{errors.name}</span>}</span>
                     </div>
                     <div className="email-container">
                         <label htmlFor="email">Email</label>
                         <input
+                            type='email'
                             name="email"
                             placeholder="Enter Email"
                             value={formData.email}
                             onChange={handleChange}
                         />
+                         <span>{errors.email && <span className='text-danger'>{errors.email}</span>}</span>
                     </div>
                     <div className="password-container">
                         <label htmlFor="password">Password</label>
                         <input
+                            type='password'
                             name="password"
                             placeholder="Enter Password"
                             value={formData.password}
                             onChange={handleChange}
                         />
+                         <span>{errors.password && <span className='text-danger'>{errors.password}</span>}</span>
                     </div>
 
                     <button type="submit">Sign Up</button>

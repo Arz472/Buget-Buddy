@@ -44,7 +44,7 @@ function LoginPage() {
                         <span>{errors.password && <span className='text-danger'>{errors.password}</span>}</span>
                     </div>
                     <button type="submit">Log In</button>
-                    <div>
+                    <div className='have-acc'>
                         <p>Don't have an account?</p>
                         <Link to="/sign-up">Sign Up</Link>
                     </div>
