@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import validation from './Valid/log-in-validation.jsx';
+import logo from '../components/Assets/iconpiggy.png';
 
 function LoginPage() {
     const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
@@ -20,6 +21,12 @@ function LoginPage() {
 
     return (
         <div className="container">
+            <div className="header-container">
+                <h1>Budget Wizer</h1>
+            </div>
+            <div className="logo-container">
+                <img src={logo} alt="Budget Wizer Logo" />
+            </div>
             <div className="form-container">
                 <h2>Log-In</h2>
                 <form onSubmit={handleSubmit}>
