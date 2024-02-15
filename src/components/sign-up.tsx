@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../components/Signup-Login.css';
 import validation from './Valid/sign-up-validation.jsx';
+import logo from '../components/images/logo.png';
 
 interface FormatData {
     name: string;
@@ -31,6 +32,9 @@ function Signup() {
 
     return (
         <div className="container">
+            <div className="header-container">
+                <h1>Budget Wizer</h1>
+            </div>
             <div className="form-container">
                 <h2>Sign-Up</h2>
                 <form onSubmit={handleSubmit}>
@@ -74,6 +78,9 @@ function Signup() {
                         <Link to="/">Log In</Link>
                     </div>
                 </form>
+            </div>
+            <div className="logo-container">
+                <img src={logo} alt="Budget Wizer Logo" />
             </div>
         </div>
     );
