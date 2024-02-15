@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../components/Signup-Login.css';
 import validation from './Valid/sign-up-validation.jsx';
-import logo from '../components/images/logo.png';
 
 interface FormatData {
     name: string;
@@ -78,9 +77,6 @@ function Signup() {
                         <Link to="/">Log In</Link>
                     </div>
                 </form>
-            </div>
-            <div className="logo-container">
-                <img src={logo} alt="Budget Wizer Logo" />
             </div>
         </div>
     );
