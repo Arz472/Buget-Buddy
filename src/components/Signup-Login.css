@@ -1,24 +1,14 @@
 .container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  height: 100vh;
   background-color: #f0fff0;
-}
-
-.header-container {
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.header-container h1 {
-  text-align: center;
-  align-items: center;
-  margin-bottom: 40px;
-  color: #333;
+  min-height: 100vh;
 }
 
 .form-container {
+  margin-top: 60px;
   width: 350px;
   padding: 30px;
   background-color: ##009600;
@@ -112,15 +102,4 @@ button:hover {
 .have-acc a:hover {
   text-decoration: underline;
   color: #278a35;
-}
-.logo-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.logo-container img {
-  width: 180px;
-  heigh: auto;
 }
